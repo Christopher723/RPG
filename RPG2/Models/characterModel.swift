@@ -24,3 +24,6 @@ struct CharacterModel: Identifiable {
 }
 
 
+
+
+

@@ -15,25 +15,43 @@ struct characterView: View {
     var power = "Fire"
     var stats = [0,0,0]
     
+    @EnvironmentObject var characters: CharacterViewModel
     
     var body: some View {
-        HStack{
-            VStack{
+        HStack(){
+            VStack(alignment: .leading){
                 Text("\(name)")
                     .bold()
                 Text("Race: \(race)")
-                Text("Power: \(power)")
+                HStack{
+                    Text("Power: ")
+                    Text("\(power)").foregroundStyle(characters.getColor(inputPower: power))
+                        .font(.system(size:19))
+                        .bold()
+                }
+                    
+                    
             }
             
-            HStack{
-                Text("STR")
-                Text("\(stats[0])")
-                Text("MAG")
-                Text("\(stats[1])")
-                Text("SPD")
-                Text("\(stats[2])")
-            }
-            .padding()
+            Spacer()
+            HStack(spacing:20){
+                    VStack{
+                        Text("STR")
+                        Text("\(stats[0])")
+                    }
+                    VStack{
+                        Text("MAG")
+                        Text("\(stats[1])")
+                    }
+                    
+                    VStack{
+                        Text("SPD")
+                        Text("\(stats[2])")
+                    }
+                }
+            
+            
+            
         }
         
     }

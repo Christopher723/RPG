@@ -22,8 +22,7 @@ struct ContentView: View {
                         .onTapGesture {
                             isPresented.toggle()
                         }
-                    
-                    
+                        
                     
                 }
             
@@ -34,6 +33,7 @@ struct ContentView: View {
                 index in
                 let character = characters.allCharacters[index]
                 characterView(name: character.name, race: character.race, power: character.power, stats: character.stats)
+                    .environmentObject(characters)
                     .padding()
             }
             

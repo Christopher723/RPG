@@ -17,7 +17,7 @@ import SwiftUI
 struct createCharacter: View {
     @State var myName = ""
     @State var myRace = ""
-    @State var power = ""
+    @State var power = "none"
     @State var stats = [0,0,0]
     @State var characterCount = 0
     @Binding var isPresented: Bool
@@ -30,9 +30,32 @@ struct createCharacter: View {
             Form{
                 TextField("Enter Name", text: $myName)
                 TextField("Enter Race", text: $myRace)
-                TextField("Enter Power", text: $power)
-                Spacer()
+                HStack{
+                    HStack{
+                    Text("Power: ")
+                    Text("\(power)")
+                            .foregroundStyle(isPresented ? characters.getColor(inputPower: power) : .black)
+                            .font(.system(size:20))
+                            .bold()
+                    }
+                    Spacer()
+                    Circle()
+                        .frame(width: 20)
+                        .onTapGesture {
+                            power = characters.getPower()
+                        }
+                }
                 
+                VStack(alignment: .leading)
+                {
+                    rarityIcon(rarity: "Common", rarityColor: .gray)
+                    rarityIcon(rarity: "Unommon", rarityColor: .green)
+                    rarityIcon(rarity: "Rare", rarityColor: .blue)
+                    rarityIcon(rarity: "Super Rare", rarityColor: .red)
+                    rarityIcon(rarity: "Ultra Rare", rarityColor: .purple)
+                    
+                    
+                }
                 HStack(spacing: 30){
                     VStack(){
                         Text("STR")
@@ -57,13 +80,7 @@ struct createCharacter: View {
                         .frame(height: 30)
                         .padding(0)
                         .onTapGesture{
-                            if(stats[1] == 0)
-                            {
-                                for i in 0..<3 {
-                                    let newStat = Int.random(in: 5..<20)
-                                    self.stats[i] = newStat
-                                }
-                            }
+                            stats = characters.generateState()
                         }
                 }
                 
@@ -98,4 +115,18 @@ struct createCharacter: View {
 
 #Preview {
     createCharacter(isPresented: .constant(false))
+}
+
+struct rarityIcon: View {
+    var rarity: String
+    var rarityColor: Color
+    var body: some View {
+        HStack{
+            Circle()
+                .frame(width: 18)
+                .foregroundStyle(rarityColor)
+            Text(" - \(rarity)")
+                .foregroundStyle(rarityColor)
+        }
+    }
 }
