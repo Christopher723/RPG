@@ -21,6 +21,7 @@ struct createCharacter: View {
     @State var stats = [0,0,0]
     @State var characterCount = 0
     @Binding var isPresented: Bool
+    @State var isExpanded = false
     
     
     @EnvironmentObject var characters: CharacterViewModel
@@ -46,16 +47,7 @@ struct createCharacter: View {
                         }
                 }
                 
-                VStack(alignment: .leading)
-                {
-                    rarityIcon(rarity: "Common", rarityColor: .gray)
-                    rarityIcon(rarity: "Unommon", rarityColor: .green)
-                    rarityIcon(rarity: "Rare", rarityColor: .blue)
-                    rarityIcon(rarity: "Super Rare", rarityColor: .red)
-                    rarityIcon(rarity: "Ultra Rare", rarityColor: .purple)
-                    
-                    
-                }
+                
                 HStack(spacing: 30){
                     VStack(){
                         Text("STR")
@@ -83,7 +75,30 @@ struct createCharacter: View {
                             stats = characters.generateState()
                         }
                 }
-                
+                VStack(alignment: .leading)
+                {
+                    HStack(){
+                        Spacer()
+                        Text("Power Rarities")
+                            
+                            .onTapGesture {
+                                
+                                isExpanded.toggle()
+                            }
+                        
+                        Image(systemName: "chevron.down")
+                        Spacer()
+                    }
+                    if isExpanded {
+                        rarityIcon(rarity: "Common", rarityColor: .gray)
+                        rarityIcon(rarity: "Unommon", rarityColor: .green)
+                        rarityIcon(rarity: "Rare", rarityColor: .blue)
+                        rarityIcon(rarity: "Super Rare", rarityColor: .red)
+                        rarityIcon(rarity: "Ultra Rare", rarityColor: .purple)
+                    }
+                    
+                    
+                }
                 
                 Section{
                     Button(action: {
