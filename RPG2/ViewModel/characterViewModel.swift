@@ -74,7 +74,7 @@ class CharacterViewModel: ObservableObject {
         return .black
     }
     
-    func generateState() -> [Int]{
+    func generateStats() -> [Int]{
         var stats = [0,0,0]
         for i in 0..<3 {
             let newStat = Int.random(in: 5..<20)

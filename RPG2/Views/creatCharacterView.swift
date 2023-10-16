@@ -26,6 +26,7 @@ struct createCharacter: View {
     
     @EnvironmentObject var characters: CharacterViewModel
     
+    
     var body: some View {
         VStack{
             Form{
@@ -72,7 +73,7 @@ struct createCharacter: View {
                         .frame(height: 30)
                         .padding(0)
                         .onTapGesture{
-                            stats = characters.generateState()
+                            stats = characters.generateStats()
                         }
                 }
                 VStack(alignment: .leading)
