@@ -48,34 +48,6 @@ struct createCharacter: View {
                         }
                 }
                 
-                
-                HStack(spacing: 30){
-                    VStack(){
-                        Text("STR")
-                        Text("\(stats[0])")
-                    }
-                    
-                    
-                    
-                    Divider()
-                    VStack{
-                        Text("MAG")
-                        Text("\(stats[1])")
-                    }
-                    Divider()
-                    VStack{
-                        Text("SPD")
-                        Text("\(stats[2])")
-                    }
-                    
-                    Divider()
-                    Circle()
-                        .frame(height: 30)
-                        .padding(0)
-                        .onTapGesture{
-                            stats = characters.generateStats()
-                        }
-                }
                 VStack(alignment: .leading)
                 {
                     HStack(){
@@ -100,6 +72,36 @@ struct createCharacter: View {
                     
                     
                 }
+                
+                HStack(spacing: 30){
+                    VStack(){
+                        Text("STR")
+                        Text("\(stats[0])")
+                    }
+                    
+                    
+                    
+                    Divider()
+                    VStack{
+                        Text("MAG")
+                        Text("\(stats[1])")
+                    }
+                    Divider()
+                    VStack{
+                        Text("SPD")
+                        Text("\(stats[2])")
+                    }
+                    
+                    
+                    Divider()
+                    Circle()
+                        .frame(height: 30)
+                        .padding(0)
+                        .onTapGesture{
+                            stats = characters.generateStats()
+                        }
+                }
+                
                 
                 Section{
                     Button(action: {
@@ -129,9 +131,6 @@ struct createCharacter: View {
     }
 }
 
-#Preview {
-    createCharacter(isPresented: .constant(false))
-}
 
 struct rarityIcon: View {
     var rarity: String
@@ -145,4 +144,7 @@ struct rarityIcon: View {
                 .foregroundStyle(rarityColor)
         }
     }
+}
+#Preview{
+    createCharacter( isPresented: .constant(false))
 }

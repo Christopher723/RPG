@@ -8,33 +8,40 @@
 import Foundation
 import SwiftUI
 
-let rarityWeights: [String: Double] = [
-        "Fire": 1.0,       // Common
-        "Water": 1.0,      // Common
-        "Earth": 1.0,      // Common
-        "Air": 1.0,        // Common
-        "Metal": 0.7,      // Uncommon
-        "Sand": 0.7,       // Uncommon
-        "Lava": 0.7,       // Uncommon
-        "Lightning": 0.7,  // Uncommon
-        "Blood": 0.7,      // Uncommon
-        "Sound": 0.7,      // Uncommon
-        "Crystal": 0.5,    // Rare
-        "Summoning": 0.5,  // Rare
-        "Plasma": 0.5,     // Rare
-        "Explosion": 0.5,  // Rare
-        "Astral": 0.4,     // Super Rare
-        "Light": 0.4,      // Super Rare
-        "Dark": 0.4,       // Super Rare
-        "Gravity": 0.4,    // Super Rare
-        "Time": 0.2,       // Ultra Rare
-        "Space": 0.2       // Ultra Rare
-    ]
 
 
 class CharacterViewModel: ObservableObject {
     
     @Published var allCharacters: [CharacterModel] = []
+    @Published var Abilities: [Abilities] = []
+    
+    
+    
+    
+    
+    let rarityWeights: [String: Double] = [
+            "Fire": 1.0,       // Common
+            "Water": 1.0,      // Common
+            "Earth": 1.0,      // Common
+            "Air": 1.0,        // Common
+            "Metal": 0.7,      // Uncommon
+            "Sand": 0.7,       // Uncommon
+            "Lava": 0.7,       // Uncommon
+            "Lightning": 0.7,  // Uncommon
+            "Blood": 0.7,      // Uncommon
+            "Sound": 0.7,      // Uncommon
+            "Crystal": 0.5,    // Rare
+            "Summoning": 0.5,  // Rare
+            "Plasma": 0.5,     // Rare
+            "Explosion": 0.5,  // Rare
+            "Astral": 0.4,     // Super Rare
+            "Light": 0.4,      // Super Rare
+            "Dark": 0.4,       // Super Rare
+            "Gravity": 0.4,    // Super Rare
+            "Time": 0.2,       // Ultra Rare
+            "Space": 0.2       // Ultra Rare
+        ]
+
     
     func addCharacter(Name: String, Race: String, Power: String, Stats: [Int] ){
         allCharacters.append(CharacterModel(name: Name, race: Race, power: Power, stats: Stats))
