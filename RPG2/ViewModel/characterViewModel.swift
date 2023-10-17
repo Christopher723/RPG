@@ -13,7 +13,7 @@ import SwiftUI
 class CharacterViewModel: ObservableObject {
     
     @Published var allCharacters: [CharacterModel] = []
-    
+    @Published var Abilities: [Abilities] = []
     
     
     
