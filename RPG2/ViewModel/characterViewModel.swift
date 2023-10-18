@@ -13,7 +13,7 @@ import SwiftUI
 class CharacterViewModel: ObservableObject {
     
     @Published var allCharacters: [CharacterModel] = []
-    @Published var Abilities: [Abilities] = []
+    
     
     
     
@@ -46,6 +46,8 @@ class CharacterViewModel: ObservableObject {
     func addCharacter(Name: String, Race: String, Power: String, Stats: [Int] ){
         allCharacters.append(CharacterModel(name: Name, race: Race, power: Power, stats: Stats))
     }
+    
+    
     
     
     func getPower() -> String{
@@ -91,7 +93,14 @@ class CharacterViewModel: ObservableObject {
         return stats
     }
 
-    
+    func getPosition(for element: String) -> Int? {
+        if let index = Array(rarityWeights.keys).firstIndex(of: element) {
+            return index
+        }
+        return nil
+    }
+        
+        
 }
 
 

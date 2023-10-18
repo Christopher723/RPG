@@ -23,9 +23,11 @@ struct createCharacter: View {
     @Binding var isPresented: Bool
     @State var isExpanded = false
     
+    @State var abilityNumber = 0
+    
     
     @EnvironmentObject var characters: CharacterViewModel
-    
+    @EnvironmentObject var ability: abilityViewModel
     
     var body: some View {
         VStack{
@@ -34,8 +36,8 @@ struct createCharacter: View {
                 TextField("Enter Race", text: $myRace)
                 HStack{
                     HStack{
-                    Text("Power: ")
-                    Text("\(power)")
+                        Text("Power: ")
+                        Text("\(power)")
                             .foregroundStyle(isPresented ? characters.getColor(inputPower: power) : .black)
                             .font(.system(size:20))
                             .bold()
@@ -45,6 +47,7 @@ struct createCharacter: View {
                         .frame(width: 20)
                         .onTapGesture {
                             power = characters.getPower()
+                            abilityNumber = characters.getPosition(for: power) ?? 0
                         }
                 }
                 
@@ -53,7 +56,7 @@ struct createCharacter: View {
                     HStack(){
                         Spacer()
                         Text("Power Rarities")
-                            
+                        
                             .onTapGesture {
                                 
                                 isExpanded.toggle()
@@ -72,6 +75,19 @@ struct createCharacter: View {
                     
                     
                 }
+                VStack{
+                    
+                    
+                    
+                    HStack{
+                        AbilityView(abilityPosition: abilityNumber, ability: abilityViewModel())
+                            
+                    }
+                    
+                    
+                
+                }.frame(height:100)
+                
                 
                 HStack(spacing: 30){
                     VStack(){
@@ -122,14 +138,14 @@ struct createCharacter: View {
             }
             
             
-            
+        }
             
         }
            
         
         
     }
-}
+
 
 
 struct rarityIcon: View {
@@ -144,7 +160,4 @@ struct rarityIcon: View {
                 .foregroundStyle(rarityColor)
         }
     }
-}
-#Preview{
-    createCharacter( isPresented: .constant(false))
 }

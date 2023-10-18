@@ -12,6 +12,8 @@ struct ContentView: View {
     
     @State var isPresented = false
     @StateObject var characters = CharacterViewModel()
+    @StateObject var ability = abilityViewModel()
+    
     
     var body: some View {
         VStack {
@@ -38,6 +40,7 @@ struct ContentView: View {
             }
             
             
+            
                 
                 
                 
@@ -48,6 +51,7 @@ struct ContentView: View {
         .sheet(isPresented: $isPresented, content: {
             createCharacter(isPresented: $isPresented)
                 .environmentObject(characters)
+                .environmentObject(ability)
         })
     }
 }
