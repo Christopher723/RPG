@@ -20,25 +20,25 @@ class CharacterViewModel: ObservableObject {
     
     
     let rarityWeights: [String: Double] = [
-        "Fire": 1.0,       // Common
-        "Water": 1.0,      // Common
-//        "Earth": 1.0,      // Common
-//        "Air": 1.0,        // Common
-//        "Metal": 0.7,      // Uncommon
-//        "Sand": 0.7,       // Uncommon
-//        "Lava": 0.7,       // Uncommon
-//        "Lightning": 0.7,  // Uncommon
-//        "Blood": 0.7,      // Uncommon
-//        "Sound": 0.7,      // Uncommon
-//        "Crystal": 0.5,    // Rare
-//        "Summoning": 0.5,  // Rare
-//        "Plasma": 0.5,     // Rare
-//        "Explosion": 0.5,  // Rare
-//        "Astral": 0.4,     // Super Rare
-//        "Light": 0.4,      // Super Rare
-//        "Dark": 0.4,       // Super Rare
+        "Fire": 1.004,       // Common
+        "Water": 1.003,      // Common
+//        "Earth": 1.002,      // Common
+//        "Air": 1.001,        // Common
+//        "Metal": 0.702,      // Uncommon
+//        "Sand": 0.701,       // Uncommon
+//        "Lava": 0.7001,       // Uncommon
+//        "Lightning": 0.70001,  // Uncommon
+//        "Blood": 0.7000001,      // Uncommon
+//        "Sound": 0.70000001,      // Uncommon
+//        "Crystal": 0.54,    // Rare
+//        "Summoning": 0.53,  // Rare
+//        "Plasma": 0.52,     // Rare
+//        "Explosion": 0.51,  // Rare
+//        "Astral": 0.43,     // Super Rare
+//        "Light": 0.42,      // Super Rare
+//        "Dark": 0.41,       // Super Rare
 //        "Gravity": 0.4,    // Super Rare
-//        "Time": 0.2,       // Ultra Rare
+//        "Time": 0.21,       // Ultra Rare
 //        "Space": 0.2       // Ultra Rare
 
             
@@ -96,12 +96,15 @@ class CharacterViewModel: ObservableObject {
         return stats
     }
 
-    func getPosition(for element: String) -> Int? {
-        if let index = Array(rarityWeights.keys).firstIndex(of: element) {
-            return index
-        }
-        return nil
-    }
+    func findRarityIndex(for element: String) -> Int? {
+        
+        let sortedElements = rarityWeights.keys.sorted { rarityWeights[$0]! > rarityWeights[$1]! }
+           if let index = sortedElements.firstIndex(of: element) {
+               return index
+           } else {
+               return nil
+           }
+       }
         
         
 }

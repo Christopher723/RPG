@@ -48,7 +48,8 @@ struct createCharacter: View {
                             .frame(width: 20)
                             .onTapGesture {
                                 power = characters.getPower()
-                                abilityNumber = characters.getPosition(for: power) ?? 0
+                                abilityNumber = characters.findRarityIndex(for: power)!
+                                
                             }
                     }
                     
@@ -81,7 +82,7 @@ struct createCharacter: View {
                         
                         
                         HStack{
-                            AbilityView(abilityPosition: abilityNumber
+                            AbilityView(abilityPosition: abilityNumber, power: power
                             ).environmentObject(ability)
                             
                         }
