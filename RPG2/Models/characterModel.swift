@@ -26,10 +26,9 @@ struct CharacterModel: Identifiable {
 struct Abilities: Identifiable {
     var id = UUID()
     var element: String
-    var abilities: [String]
-    var description: [String]
+    var abilities: [String: String]
     
-    
+
     
 }
 

@@ -10,13 +10,27 @@ import Foundation
 
 class abilityViewModel: ObservableObject{
     
-    @Published var abilities: [Abilities] = [
-        Abilities(element: "Fire", abilities: ["Fireball", "Firetornado", "SunExplosion"], description: ["Throw a Fireball", "Create tornado of fire", "Explode the sun"]),
-        Abilities(element: "Water", abilities: ["Waterblast", "Whirlpool", "Greatflood"], description: ["Throw a Waterblast", "Create tornado of fire", "Explode the sun"]),
-        Abilities(element: "Earth", abilities: ["Earthblast", "Rockslide", "Earthquake"], description: ["Throw a Rock", "Create tornado of fire", "Explode the sun"]),
-        Abilities(element: "Air", abilities: ["Fly", "Aircutter", "Tornado"], description: ["Throw a Rock", "Create tornado of fire", "Explode the sun"]),
-        
-    ]
+    @Published var isShowing = false
+    @Published var currentAbility = ""
+    @Published var currentDescription = ""
     
+    
+    
+    @Published var abilities: [Abilities] = [
+        Abilities(element: "Fire", abilities : [
+            "Fireball" : "Throw a Fireball",
+            "Firetornado" : "Create tornado of fire",
+            "SunExplosion" : "Explode the sun"]),
+        Abilities(element: "Water", abilities: [
+            "Waterblast" : "Throw a Waterblast",
+            "Whirlpool" : "Suck your opponent into a whirlpool",
+            "Greatflood" : "Flood the world" ])
+                  
+//
+//        Abilities(element: "Earth", abilities: ["Earthblast", "Rockslide", "Earthquake"], description: ["Throw a Rock", "Create tornado of fire", "Explode the sun"]),
+//        Abilities(element: "Air", abilities: ["Fly", "Aircutter", "Tornado"], description: ["Throw a Rock", "Create tornado of fire", "Explode the sun"]),
+//        
+    
+    ]
     
 }

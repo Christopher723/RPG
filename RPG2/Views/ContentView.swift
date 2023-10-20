@@ -24,6 +24,7 @@ struct ContentView: View {
                         .onTapGesture {
                             isPresented.toggle()
                         }
+                    
                         
                     
                 }

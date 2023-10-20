@@ -10,25 +10,30 @@ import SwiftUI
 struct AbilityView: View {
     
     var abilityPosition = 0
-    @ObservedObject var ability: abilityViewModel
     
+    @EnvironmentObject var ability: abilityViewModel
+
     
     var body: some View {
         ScrollView(.horizontal){
             HStack{
-                ForEach(ability.abilities[abilityPosition].abilities, id:  \.self){
-                    index in
-                    Image(index)
+                ForEach(Array(ability.abilities[abilityPosition].abilities), id: \.key) { (key, value) in
+                    Image(key)
                         .resizable()
                         .frame(width: 80, height: 80)
                         .padding()
+                        .onTapGesture {
+                            ability.currentAbility = key
+                            ability.currentDescription = value
+                            ability.isShowing = true
+                        }
                     
                 }
             }
         }
+        
+        
     }
+    
 }
 
-#Preview {
-    AbilityView(ability: abilityViewModel())
-}
