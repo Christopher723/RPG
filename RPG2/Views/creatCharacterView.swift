@@ -30,8 +30,7 @@ struct createCharacter: View {
     
     var body: some View {
         ZStack{
-            
-            
+
             VStack{
                 Form{
                     TextField("Enter Name", text: $myName)
@@ -141,19 +140,15 @@ struct createCharacter: View {
                 }
                 
                 
-            }
-            
+            }.blur(radius: ability.isShowing ? 20 : 0)
             if ability.isShowing{
                 AbilityDetailView(image: .constant(ability.currentAbility),description: .constant(ability.currentDescription), isShowing: $ability.isShowing)
+                
             }
             
-            
-            
-            
-            
-            
-        }.blur(radius: ability.isShowing ? 20 : 0)
-            
+        }
+        
+        
         }
            
         
