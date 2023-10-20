@@ -17,11 +17,11 @@ import SwiftUI
 struct createCharacter: View {
     @State var myName = ""
     @State var myRace = ""
-    @State var power = "none"
     @State var stats = [0,0,0]
     @State var characterCount = 0
     @Binding var isPresented: Bool
     @State var isExpanded = false
+    
     @State var abilityNumber = 0
     
     
@@ -38,8 +38,8 @@ struct createCharacter: View {
                     HStack{
                         HStack{
                             Text("Power: ")
-                            Text("\(power)")
-                                .foregroundStyle(isPresented ? characters.getColor(inputPower: power) : .black)
+                            Text("\(ability.power)")
+                                .foregroundStyle(isPresented ? characters.getColor(inputPower: ability.power) : .black)
                                 .font(.system(size:20))
                                 .bold()
                         }
@@ -47,8 +47,8 @@ struct createCharacter: View {
                         Circle()
                             .frame(width: 20)
                             .onTapGesture {
-                                power = characters.getPower()
-                                abilityNumber = characters.findRarityIndex(for: power)!
+                                ability.power = characters.getPower()
+                                abilityNumber = characters.findRarityIndex(for: ability.power)!
                                 
                             }
                     }
@@ -82,7 +82,7 @@ struct createCharacter: View {
                         
                         
                         HStack{
-                            AbilityView(abilityPosition: abilityNumber, power: power
+                            AbilityView(abilityPosition: abilityNumber
                             ).environmentObject(ability)
                             
                         }
@@ -124,8 +124,8 @@ struct createCharacter: View {
                     
                     Section{
                         Button(action: {
-                            characters.addCharacter(Name: myName, Race: myRace, Power: power, Stats: stats )
-                            
+                            characters.addCharacter(Name: myName, Race: myRace, Power: ability.power, Stats: stats )
+                            ability.power = "none"
                             isPresented.toggle()
                             
                         },label: {

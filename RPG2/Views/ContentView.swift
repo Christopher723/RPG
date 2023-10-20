@@ -42,6 +42,7 @@ struct ContentView: View {
                         .onTapGesture{
                             ability.index = index
                             ability.isShowingChar = true
+                            ability.power = characters.allCharacters[index].power
                         }
                 }
                 
@@ -64,6 +65,7 @@ struct ContentView: View {
                 CharacterDetailView(
                     name: .constant(characters.allCharacters[ability.index].name),
                     stats: .constant(characters.allCharacters[ability.index].stats), isShowingChar: $ability.isShowingChar)
+                
                 
                 
                 

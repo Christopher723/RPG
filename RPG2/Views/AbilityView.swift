@@ -10,12 +10,11 @@ import SwiftUI
 struct AbilityView: View {
     
     var abilityPosition = 0
-    var power = "none"
     @EnvironmentObject var ability: abilityViewModel
 
     
     var body: some View {
-        if power != "none"{
+        if ability.power != "none"{
             ScrollView(.horizontal){
                 HStack{
                     ForEach(Array(ability.abilities[abilityPosition].abilities), id: \.key) { (key, value) in
