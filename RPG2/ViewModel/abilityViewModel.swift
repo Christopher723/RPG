@@ -11,8 +11,12 @@ import Foundation
 class abilityViewModel: ObservableObject{
     
     @Published var isShowing = false
+
     @Published var currentAbility = ""
     @Published var currentDescription = ""
+    @Published var isShowingChar = false
+    @Published var index = 0
+    
     
     
     

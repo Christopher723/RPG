@@ -16,6 +16,7 @@
 		3A36837E2ADC288100819162 /* characterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A36837D2ADC288100819162 /* characterView.swift */; };
 		3A3683802ADC2A9300819162 /* creatCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A36837F2ADC2A9300819162 /* creatCharacterView.swift */; };
 		3A42C7592AE2C6010099CC61 /* XDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A42C7582AE2C6010099CC61 /* XDismissButton.swift */; };
+		3A42C75D2AE2E7940099CC61 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A42C75C2AE2E7940099CC61 /* CharacterDetailView.swift */; };
 		3A5537B52AE1AAB800E06601 /* AbilityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5537B42AE1AAB800E06601 /* AbilityDetailView.swift */; };
 		3AF5F6112ADEF5B0003A3443 /* abilityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF5F6102ADEF5B0003A3443 /* abilityViewModel.swift */; };
 		3AF5F6182ADF0508003A3443 /* AbilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF5F6172ADF0508003A3443 /* AbilityView.swift */; };
@@ -32,6 +33,7 @@
 		3A36837D2ADC288100819162 /* characterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = characterView.swift; sourceTree = "<group>"; };
 		3A36837F2ADC2A9300819162 /* creatCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = creatCharacterView.swift; sourceTree = "<group>"; };
 		3A42C7582AE2C6010099CC61 /* XDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XDismissButton.swift; sourceTree = "<group>"; };
+		3A42C75C2AE2E7940099CC61 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 		3A5537B42AE1AAB800E06601 /* AbilityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityDetailView.swift; sourceTree = "<group>"; };
 		3AF5F6102ADEF5B0003A3443 /* abilityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = abilityViewModel.swift; sourceTree = "<group>"; };
 		3AF5F6172ADF0508003A3443 /* AbilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				3A36837F2ADC2A9300819162 /* creatCharacterView.swift */,
 				3A5537B42AE1AAB800E06601 /* AbilityDetailView.swift */,
 				3AF5F6172ADF0508003A3443 /* AbilityView.swift */,
+				3A42C75C2AE2E7940099CC61 /* CharacterDetailView.swift */,
 				3A36837D2ADC288100819162 /* characterView.swift */,
 				3A42C7572AE2C5F50099CC61 /* Buttons */,
 			);
@@ -194,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A3683792ADC24B600819162 /* characterViewModel.swift in Sources */,
+				3A42C75D2AE2E7940099CC61 /* CharacterDetailView.swift in Sources */,
 				3A36836B2ADC193900819162 /* ContentView.swift in Sources */,
 				3A3683802ADC2A9300819162 /* creatCharacterView.swift in Sources */,
 				3A3683692ADC193900819162 /* RPG2App.swift in Sources */,

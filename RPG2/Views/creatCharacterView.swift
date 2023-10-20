@@ -22,7 +22,6 @@ struct createCharacter: View {
     @State var characterCount = 0
     @Binding var isPresented: Bool
     @State var isExpanded = false
-    
     @State var abilityNumber = 0
     
     
@@ -153,7 +152,7 @@ struct createCharacter: View {
             
             
             
-        }
+        }.blur(radius: ability.isShowing ? 20 : 0)
             
         }
            

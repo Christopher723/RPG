@@ -16,7 +16,8 @@ struct ContentView: View {
     
     
     var body: some View {
-        VStack {
+        ZStack{
+            VStack {
                 HStack{
                     Spacer()
                     Circle()
@@ -25,35 +26,53 @@ struct ContentView: View {
                             isPresented.toggle()
                         }
                     
-                        
+                    
                     
                 }
-            
                 
-            
-            
-            ForEach(characters.allCharacters.indices, id:  \.self){
-                index in
-                let character = characters.allCharacters[index]
-                characterView(name: character.name, race: character.race, power: character.power, stats: character.stats)
-                    .environmentObject(characters)
-                    .padding()
-            }
-            
-            
-            
+                
+                
+                
+                ForEach(characters.allCharacters.indices, id:  \.self){
+                    index in
+                    let character = characters.allCharacters[index]
+                    characterView(name: character.name, race: character.race, power: character.power, stats: character.stats)
+                        .environmentObject(characters)
+                        .padding()
+                        .onTapGesture{
+                            ability.index = index
+                            ability.isShowingChar = true
+                        }
+                }
+                
+                
+                
                 
                 
                 
                 Spacer()
+                
+                
+            }.blur(radius: ability.isShowingChar ? 20 : 0)
+                .padding()
+                .sheet(isPresented: $isPresented, content: {
+                    createCharacter(isPresented: $isPresented)
+                        .environmentObject(characters)
+                        .environmentObject(ability)
+                })
+            if ability.isShowingChar {
+                CharacterDetailView(
+                    name: .constant(characters.allCharacters[ability.index].name),
+                    stats: .constant(characters.allCharacters[ability.index].stats), isShowingChar: $ability.isShowingChar)
+                
+                
+                
+                
+            }
             
         }
-        .padding()
-        .sheet(isPresented: $isPresented, content: {
-            createCharacter(isPresented: $isPresented)
-                .environmentObject(characters)
-                .environmentObject(ability)
-        })
+        
+        
     }
 }
 
